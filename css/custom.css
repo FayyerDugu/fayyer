@@ -188,10 +188,7 @@ body::-webkit-scrollbar,
   }
 }
 
-.loading-img {
-  background: url(https://s2.loli.net/2023/12/17/RZ4M2Coiwt8N6IH.png) no-repeat center center;
-  background-size: cover;
-}
+
 
 /* 帧率检测 */
 #fps {
@@ -420,26 +417,34 @@ footer {
   justify-content: center; /* 水平居中 */  
   align-items: center; /* 如果需要垂直居中也可以加上这一行 */  
   padding: 0.5rem !important;
-  min-height: 130px;
+  min-height: 120px;
 }
 
 div#poem_sentence {  
   font-size: 3rem;  
   font-weight: bold;
-  writing-mode: vertical-rl; /* 垂直排列，从右到左 */  
+  writing-mode: vertical-rl; 
   font-family: "Shoujin" ;  
   margin-bottom: 0.5rem;  
   padding-top: 1rem;  
   padding-bottom: 1rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  display: grid;  
+  place-items: center; /* 这会尝试在网格中水平和垂直居中内容，但效果可能不是你想要的 */  
+  grid-template-columns: 1fr; /* 定义一个单列网格 */  
+  grid-template-rows: minmax(100px, auto); /* 定义行高，这里使用min-height的值作为最小行高 */  
+  align-content: center; /* 尝试在网格的额外空间内垂直居中内容（对于单行内容可能效果不明显） */  
+  justify-content: center; /* 这在水平方向上居中网格内的内容，但因为我们只有一列，所以效果可能不明显 */   
+  padding-left: 0; /* 移除或调整左内边距以匹配你的设计 */  
+  padding-right: 0; /* 同上 */  
   border-radius: 12px;  
   background-image: url(/custom/xuanzhi.jpg); 
-  background-size: cover; /* 或者使用 background-repeat: repeat; 根据需要 */  
+  background-size: cover;
   min-height: 100px; 
-  width: 100%; /* 或者其他固定宽度 */  
+  width: 100%;  
 
 }
+
+
 
 div#poem_info {
   display: flex;
